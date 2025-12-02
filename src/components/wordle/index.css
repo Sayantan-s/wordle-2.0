@@ -1,0 +1,33 @@
+.wordle__solutions {
+}
+
+.wordle__solutions > .wordle__solutions__rows {
+  display: flex;
+  gap: 1rem;
+}
+
+.wordle__solutions > .wordle__solutions__rows:not(:first-child) {
+  margin-top: 1rem;
+}
+
+.wordle__solutions .wordle__solutions__rows input {
+  width: 8rem;
+  height: 8rem;
+  text-align: center;
+  font-size: 3rem;
+}
+
+.wordle__solutions .wordle__solutions__rows input.grey {
+  background-color: grey;
+}
+
+.wordle__solutions .wordle__solutions__rows input.yellow {
+  background-color: yellow;
+}
+
+.wordle__solutions .wordle__solutions__rows input.green {
+  background-color: green;
+}
+
+.wordle__solutions .wordle__solutions__rows input:focus {
+}
