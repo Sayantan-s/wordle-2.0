@@ -125,12 +125,12 @@ const Root: FC<IProps> = ({ attempts, wordSize }) => {
           console.log("move to prev", currentInputValue);
           inputRefs.current[activeAttemptIndex][letterIndex - 1]?.focus();
         }
-      } else {
-        setTimeout(() => {
-          inputRefs.current[activeAttemptIndex][letterIndex + 1]?.focus();
-        }, 0);
       }
     };
+
+  const handleMoveToNextInput = (letterIndex: number) => () => {
+    inputRefs.current[activeAttemptIndex][letterIndex + 1]?.focus();
+  };
 
   // const handleBlur =
   //   (letterIndex: number): React.FocusEventHandler<HTMLInputElement> =>
@@ -140,8 +140,6 @@ const Root: FC<IProps> = ({ attempts, wordSize }) => {
   //     console.log(shouldFocusOnWordIndex);
   //     inputRefs.current[activeAttemptIndex][shouldFocusOnWordIndex]?.focus();
   //   };
-
-  console.log(hint, "hint");
 
   return (
     <div className="wordle__solutions">
@@ -157,7 +155,7 @@ const Root: FC<IProps> = ({ attempts, wordSize }) => {
                 onChange={handleChangeAttempt(letterIndex)}
                 onKeyDown={handleKeyDown(letterIndex)}
                 className={HINT_CLASS_NAME[hint[solutionIndex]?.[letterIndex]]}
-                // onFocus={handleBlur(letterIndex)}
+                onInput={handleMoveToNextInput(letterIndex)}
               />
             </div>
           ))}
